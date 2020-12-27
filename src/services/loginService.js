@@ -1,10 +1,8 @@
-const sequilize = require('sequelize');
 const db = require('../models/index');
-const { get } = require('../routes');
-// const user = require('../models/user');
 const { User } = db.sequelize.models;
 
-const loginUser = async (req, res) => {
+const loginUser = async (req, res) => 
+{
     const email = req.body.email;
     const password = req.body.password;
     getUser = await User.findAll({

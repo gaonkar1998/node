@@ -9,25 +9,37 @@ const addquestion = async (req, res) =>
     const type = req.body.type;
     const marks = req.body.marks;
     //find all users with the email repeated 
-
-    getData = await Question.findAll({
-        where: {
-            title: title,
-            type: type
-        }
-    });
-    if (getData.length) 
+    const header = req.headers.authorization;
+    if (!header) 
     {
-        return { status: "error", message: "Question already exisits" }
+        return { status: 401, message: 'enter valid bearer token' }
     }
-    // if no user with same email add that user to database 
-    else {
-        const createquestion = {
-            title,
-            type,
-            marks
+    var token = header.split(' ')[1];
+    var userdetail = jwt_decode(token);
+    var role = userdetail.role;
+    if(role=='admin'){
+        getData = await Question.findAll({
+            where: {
+                title: title,
+                type: type
+            }
+        });
+        if (getData.length) 
+        {
+            return { status: "error", message: "Question already exisits" }
         }
-        return { status: "success", data: await Question.create(createquestion) };
+        // if no user with same email add that user to database 
+        else {
+            const createquestion = {
+                title,
+                type,
+                marks
+            }
+            return { status: "success", data: await Question.create(createquestion) };
+        }
+    }
+    else{
+        return {status:"error", message:"You have no permisiion to add question"}
     }
 };
 //to display the added questions
@@ -36,15 +48,14 @@ const viewquestion = async (req, res) =>
     const header = req.headers.authorization;
     if (!header) 
     {
-        return { status: 401, message: 'enter token' }
+        return { status: 401, message: 'enter valid bearer token' }
     }
     var token = header.split(' ')[1];
     var userdetail = jwt_decode(token);
     var role = userdetail.role;
-    console.log(role);
     if (role == 'admin') 
     {
-        getquestion = await Question.findAll({});
+        const getquestion = await Question.findAll({});
         if (getquestion.length) 
         {
             return { status: 200, data: getquestion };

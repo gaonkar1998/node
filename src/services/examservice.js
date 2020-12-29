@@ -12,9 +12,10 @@ const getexams = async (req, res) =>
     var token = header.split(' ')[1];
     var userdetail = jwt_decode(token);
     var role = userdetail.role;
+    console.log(role)
     if (role == 'admin') 
     {
-        getExam = await Exam.findAll({});
+        const getExam = await Exam.findAll({});
         if (getExam.length) 
         {
             return { status: 200, data: getExam };
@@ -26,9 +27,8 @@ const getexams = async (req, res) =>
     }
     else 
     {
-        return { status: 200, message: "you have no permission" };
+        return { status: 401, message: "you have no permission" };
     }
-
 }
 
 module.exports = 

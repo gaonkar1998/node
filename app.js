@@ -8,6 +8,9 @@ var app = express();
 
 var bodyparser = require('body-parser');
 
+const swaggerjsDoc = require('swagger-jsdoc');
+
+const swaggerUi = require('swagger-ui-express');
 //read port from .env file
 var port = process.env.PORT_N0;
 app.server = http.createServer(app);
@@ -25,6 +28,23 @@ app.use (jsonparser);
 const apiroutes = require('./src/routes/index');
 
 app.use('/api', apiroutes);
+
+const swaggerOptions = {
+    swaggerDefinition :{
+        info :{
+            title:"Testing Backend API ",
+            description :"Documenataion for restful api",
+            Servers:['http://localhost:5000'],
+            version : '1.0.0',
+        }
+    },
+    host: "localhost:5000",
+    basePath: "/",
+    schemes: ['http', 'https'],
+    apis:['./src/routes/index.js'],
+}
+const swaggerDocs = swaggerjsDoc(swaggerOptions);
+app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.listen(port, () => {
     console.log("Server1 is running in port no " +port);

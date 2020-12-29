@@ -12,7 +12,7 @@ const getbranch = async (req, res) =>
     var token = header.split(' ')[1];
     var userdetail = jwt_decode(token);
     var role = userdetail.role;
-    if (role == 'Student') 
+    if (role == 'student') 
     {
         const getbranches = await Branch.findAll({});
         if (getbranches.length) 

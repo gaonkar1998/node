@@ -9,7 +9,6 @@ const dbName = process.env.db_Name;
 const username = process.env.user_name;
 const password = process.env.Password;
 const dbPort = process.env.db_Port;
-console.log("port host is"+process.env.db_host);
 
 const sequelize = new Sequelize(`mysql://${username}:${password}@${dbHost}:${dbPort}/${dbName}`);
 

@@ -236,7 +236,8 @@ routes.post('/addquestion',authService.validatetoken,
             .not().isEmpty().withMessage("type cannot be empty"),
 
         body('marks')
-            .isNumeric({ min: 1, max: 10 }).withMessage("name should be string")
+            .isInt({ min: 1, max: 10 }).withMessage("enter marks between 1-10")
+            .not().isAlpha().withMessage("enter integer value")
             .not().isEmpty().withMessage("marks cannont be empty"),
 
     ],

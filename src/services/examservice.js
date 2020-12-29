@@ -13,7 +13,7 @@ const getexams = async (req, res) =>
     // var userdetail = jwt_decode(token);
     // var role = userdetail.role;
     // console.log(role)
-    var role = req.res.locals.user.role;
+    var role = res.locals.user.role;
     if (role == 'admin') 
     {
         const getExam = await Exam.findAll({});

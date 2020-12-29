@@ -17,7 +17,7 @@ const addquestion = async (req, res) =>
     // var token = header.split(' ')[1];
     // var userdetail = jwt_decode(token);
     // var role = userdetail.role;
-    var role = req.res.locals.user.role;
+    var role = res.locals.user.role;
     if(role=='admin'){
         getData = await Question.findAll({
             where: {
@@ -54,7 +54,7 @@ const viewquestion = async (req, res) =>
     // var token = header.split(' ')[1];
     // var userdetail = jwt_decode(token);
     // var role = userdetail.role;
-    var role = req.res.locals.user.role;
+    var role = res.locals.user.role;
     if (role == 'admin') 
     {
         const getquestion = await Question.findAll({});

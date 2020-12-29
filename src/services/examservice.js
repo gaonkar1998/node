@@ -9,10 +9,11 @@ const getexams = async (req, res) =>
     {
         return { status: 401, message: 'enter token' }
     }
-    var token = header.split(' ')[1];
-    var userdetail = jwt_decode(token);
-    var role = userdetail.role;
-    console.log(role)
+    // var token = header.split(' ')[1];
+    // var userdetail = jwt_decode(token);
+    // var role = userdetail.role;
+    // console.log(role)
+    var role = req.res.locals.user.role;
     if (role == 'admin') 
     {
         const getExam = await Exam.findAll({});

@@ -14,9 +14,10 @@ const addquestion = async (req, res) =>
     {
         return { status: 401, message: 'enter valid bearer token' }
     }
-    var token = header.split(' ')[1];
-    var userdetail = jwt_decode(token);
-    var role = userdetail.role;
+    // var token = header.split(' ')[1];
+    // var userdetail = jwt_decode(token);
+    // var role = userdetail.role;
+    var role = req.res.locals.user.role;
     if(role=='admin'){
         getData = await Question.findAll({
             where: {
@@ -50,9 +51,10 @@ const viewquestion = async (req, res) =>
     {
         return { status: 401, message: 'enter valid bearer token' }
     }
-    var token = header.split(' ')[1];
-    var userdetail = jwt_decode(token);
-    var role = userdetail.role;
+    // var token = header.split(' ')[1];
+    // var userdetail = jwt_decode(token);
+    // var role = userdetail.role;
+    var role = req.res.locals.user.role;
     if (role == 'admin') 
     {
         const getquestion = await Question.findAll({});

@@ -196,7 +196,6 @@ routes.post('/login',
     logincontroller.loginuser);
 
 
-
  /**
  * @swagger
  * /api/addquestion:
@@ -227,7 +226,7 @@ routes.post('/login',
  *          description: No permission.
  */
 //if the path imcludes add question routes 
-routes.post('/addquestion',
+routes.post('/addquestion',authService.validatetoken,
     [
         body('title')
             .not().isEmpty().withMessage("title cannot be empty"),
@@ -267,7 +266,7 @@ routes.post('/addquestion',
  *          description: error in receiving details.
  */
 //route to get all registered users
-routes.get('/getquestion', questioncontroller.fetchquestions);
+routes.get('/getquestion',authService.validatetoken, questioncontroller.fetchquestions);
 
  /**
  * @swagger
@@ -293,7 +292,7 @@ routes.get('/getquestion', questioncontroller.fetchquestions);
  *          description: error in receiving exams.
  */
 //route to get exams details
-routes.get('/getexams', examscontroller.getexam);
+routes.get('/getexams', authService.validatetoken,examscontroller.getexam);
 
  /**
  * @swagger
@@ -321,7 +320,7 @@ routes.get('/getexams', examscontroller.getexam);
  *          description: unauthorized.
  */
 //route to get branch details
-routes.get('/getbranch', branchcontroller.getbranch);
+routes.get('/getbranch', authService.validatetoken,branchcontroller.getbranch);
 
 //route to export the routes declared 
 module.exports = routes;

@@ -28,7 +28,7 @@ const validatetoken = (req,res, next) =>
             next();
         }
         catch(err){
-            return res.status(401).json({"eror":"token expired"});
+            return res.status(401).json({"eror":"token invalid"});
         }
     }
     else{

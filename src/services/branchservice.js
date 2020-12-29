@@ -1,4 +1,4 @@
-const jwt_decode = require('jwt-decode');;
+const jwt_decode = require('jwt-decode');
 const db = require('../models/index');
 const { Branch } = db.sequelize.models;
 
@@ -9,9 +9,9 @@ const getbranch = async (req, res) =>
     {
         return { status: 401, message: 'enter token' }
     }
-    var token = header.split(' ')[1];
-    var userdetail = jwt_decode(token);
-    var role = userdetail.role;
+    // var token = header.split(' ')[1];
+    // var userdetail = jwt_decode(token);
+    var role = req.res.locals.user.role;
     if (role == 'student') 
     {
         const getbranches = await Branch.findAll({});

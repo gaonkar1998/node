@@ -1,10 +1,11 @@
 const db = require('../models/index');
 const { User } = db.sequelize.models;
+const bcrypt = require('bcrypt');
 const registerUser = async (req, res) => 
 {
     // read the data from the input fields 
     const email = req.body.email;
-    const password = req.body.password;
+    const password = bcrypt.hashSync(req.body.password,10);
     const first_name = req.body.first_name;
     const last_name = req.body.last_name;
     const role = req.body.role;

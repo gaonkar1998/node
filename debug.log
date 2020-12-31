@@ -1,0 +1,72 @@
+{"message":"application running on port 5000","level":"info","timestamp":"2020-12-31T09:08:10.105Z"}
+{"message":"user with email admin2@gmail.com logged in successfully","level":"info","timestamp":"2020-12-31T09:09:23.276Z"}
+{"message":[{"user_id":9,"email":"admin2@gmail.com","password":"$2b$10$H84sS7SM9RXvi4q2rjQ6puK/UHY9YIkVTLqPtFeICpheQOh5KtgRm","first_name":"admin","last_name":"admin","role":"admin"}],"level":"info","timestamp":"2020-12-31T09:09:23.276Z"}
+{"message":"token generated eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJlbWFpbCI6ImFkbWluMkBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiYWRtaW4iLCJsYXN0X25hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwOTQwNTc2MywiZXhwIjoxNjA5NTc4NTYzLCJpc3MiOiJUZWtub3RyYWl0In0.b3wcGjSFcUCEvqgdyCk2NrVSwdNT5JmVuL2y0f5fD8M","level":"info","timestamp":"2020-12-31T09:09:23.278Z"}
+{"message":"application running on port 5000","level":"info","timestamp":"2020-12-31T10:00:49.851Z"}
+{"message":"user with email admin2@gmail.com logged in successfully","level":"info","timestamp":"2020-12-31T10:00:54.850Z"}
+{"message":[{"user_id":9,"email":"admin2@gmail.com","password":"$2b$10$H84sS7SM9RXvi4q2rjQ6puK/UHY9YIkVTLqPtFeICpheQOh5KtgRm","first_name":"admin","last_name":"admin","role":"admin"}],"level":"info","timestamp":"2020-12-31T10:00:54.851Z"}
+{"message":"token generated eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJlbWFpbCI6ImFkbWluMkBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiYWRtaW4iLCJsYXN0X25hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwOTQwODg1NCwiZXhwIjoxNjA5NTgxNjU0LCJpc3MiOiJUZWtub3RyYWl0In0.TKm4C53QTtO_FGH7EW68z-wP4n2-npBDYJ2AwtUJIXc","level":"info","timestamp":"2020-12-31T10:00:54.855Z"}
+{
+  message: 'application running on port 5000',
+  level: 'info',
+  timestamp: '2020-12-31T10:01:48.490Z'
+}
+{
+  message: 'application running on port 5000',
+  level: 'info',
+  timestamp: '2020-12-31T10:23:41.311Z'
+}
+{
+  message: 'user with email admin2@gmail.com logged in successfully',
+  level: 'info',
+  timestamp: '2020-12-31T10:23:46.746Z'
+}
+{
+  message: [
+    {
+      user_id: 9,
+      email: 'admin2@gmail.com',
+      password: '$2b$10$H84sS7SM9RXvi4q2rjQ6puK/UHY9YIkVTLqPtFeICpheQOh5KtgRm',
+      first_name: 'admin',
+      last_name: 'admin',
+      role: 'admin'
+    }
+  ],
+  level: 'info',
+  timestamp: '2020-12-31T10:23:46.747Z'
+}
+{
+  message: 'token generated eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJlbWFpbCI6ImFkbWluMkBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiYWRtaW4iLCJsYXN0X25hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwOTQxMDIyNiwiZXhwIjoxNjA5NTgzMDI2LCJpc3MiOiJUZWtub3RyYWl0In0.ee9O8gt5zavy_SXjt-LfPvW2acYdah5DIgP7E85zBWM',
+  level: 'info',
+  timestamp: '2020-12-31T10:23:46.749Z'
+}
+{
+  message: 'application running on port 5000',
+  level: 'info',
+  timestamp: '2020-12-31T10:24:40.967Z'
+}
+{
+  message: 'user with email admin2@gmail.com logged in successfully',
+  level: 'info',
+  timestamp: '2020-12-31T10:24:44.897Z'
+}
+{
+  message: 'token generated eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJlbWFpbCI6ImFkbWluMkBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiYWRtaW4iLCJsYXN0X25hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwOTQxMDI4NCwiZXhwIjoxNjA5NTgzMDg0LCJpc3MiOiJUZWtub3RyYWl0In0.TYWvIJwZWoK0x-0mfjzd5Bsa3DLAH0iW5LPhLtS_8cQ',
+  level: 'info',
+  timestamp: '2020-12-31T10:24:44.901Z'
+}
+{
+  message: 'email and password invalid to access the application',
+  level: 'error',
+  timestamp: '2020-12-31T10:25:04.897Z'
+}
+{
+  message: 'email and password invalid to access the application',
+  level: 'error',
+  timestamp: '2020-12-31T10:25:41.569Z'
+}
+{
+  message: 'application running on port 5000',
+  level: 'info',
+  timestamp: '2020-12-31T10:25:56.813Z'
+}

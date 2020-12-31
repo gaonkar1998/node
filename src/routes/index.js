@@ -16,6 +16,8 @@ const examscontroller = require("../controllers/examcontroller");
 const branchcontroller = require("../controllers/branchcontroller");
 
 const logincontroller = require("../controllers/logincontroller");
+
+var logger = require('../logger/logger');
 //model for all the tables in database
 /**
  * @swagger
@@ -115,7 +117,7 @@ const logincontroller = require("../controllers/logincontroller");
  * /api/register:
  *    post:
  *      tags:
- *          - Register
+ *          - Auth
  *      summary: This should create user based on role.
  *      consumes:
  *        -application/json                  

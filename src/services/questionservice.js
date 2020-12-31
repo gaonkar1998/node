@@ -1,7 +1,7 @@
 const db = require('../models/index');
 const { Question } = db.sequelize.models;
 const jwt_decode = require('jwt-decode');
-
+var logger = require('../logger/logger');
 const addquestion = async (req, res) => 
 {
     // read the data from the input fields 
@@ -12,6 +12,7 @@ const addquestion = async (req, res) =>
     const header = req.headers.authorization;
     if (!header) 
     {
+        logger.error("no auth token passed to access branch deatils");
         return { status: 401, message: 'enter valid bearer token' }
     }
     // var token = header.split(' ')[1];
@@ -27,6 +28,7 @@ const addquestion = async (req, res) =>
         });
         if (getData.length) 
         {
+            logger.error(`question with title "${getData[0].title}" already exists`);
             return { status: "error", message: "Question already exisits" }
         }
         // if no user with same email add that user to database 
@@ -36,6 +38,7 @@ const addquestion = async (req, res) =>
                 type,
                 marks
             }
+            logger.info("successfully created question");
             return { status: "success", data: await Question.create(createquestion) };
         }
     }
@@ -60,15 +63,22 @@ const viewquestion = async (req, res) =>
         const getquestion = await Question.findAll({});
         if (getquestion.length) 
         {
+            let response = res.send;
+            res.send = function (data) {
+            logger.info(JSON.parse(data));
+            response.apply(res, arguments);
+            }
             return { status: 200, data: getquestion };
         }
         else 
         {
+            logger.error("no questions in db");
             return { status: 401, message: "data not present" };
         }
     }
     else 
     {
+        logger.error("you have no permission to access questions");
         return { status: 401, message: 'you have no permission' };
     }
 }

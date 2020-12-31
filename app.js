@@ -10,6 +10,8 @@ var bodyparser = require('body-parser');
 
 const swaggerjsDoc = require('swagger-jsdoc');
 
+const logger = require('./src/logger/logger');
+
 const swaggerUi = require('swagger-ui-express');
 //read port from .env file
 var port = process.env.PORT_N0;
@@ -48,4 +50,5 @@ app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.listen(port, () => {
     console.log("Server1 is running in port no " +port);
+    logger.info(`application running on port ${port}`);
 });

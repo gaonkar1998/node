@@ -1,0 +1,10 @@
+{
+  message: 'email and password invalid to access the application',
+  level: 'error',
+  timestamp: '2020-12-31T10:25:04.897Z'
+}
+{
+  message: 'email and password invalid to access the application',
+  level: 'error',
+  timestamp: '2020-12-31T10:25:41.569Z'
+}

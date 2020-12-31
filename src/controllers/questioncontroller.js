@@ -4,16 +4,13 @@ const { validationResult } = require('express-validator');
 
 const addquestions = async (req, res) =>
 {
-
     // validate the sent request 
     const error = validationResult(req);
-
     //if their are errors in the request print the errors
     if (!error.isEmpty()) 
     {
         return res.status(401).json({ "error": error });
     }
-
     // execute service file
     const addquestion = await questionservice.addquestion(req, res);
 
@@ -38,7 +35,6 @@ const fetchquestions = async (req, res) =>
         return res.status(404).json({ error: fetchquestion.message });
     }
 }
-
 module.exports =
 {
     addquestions,

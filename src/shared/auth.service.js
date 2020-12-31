@@ -1,4 +1,5 @@
 const jwt = require ('jsonwebtoken');
+const logger = require('../logger/logger');
 
 const CONSTANTS = require('./constants');
 
@@ -11,7 +12,6 @@ const generateToken = userData =>
     const token = jwt.sign(userData, CONSTANTS.JWT_SECRET_KEY,options);
     return token;
 }
-
 //authenticate the token
 const validatetoken = (req,res, next) => 
 {
@@ -28,10 +28,12 @@ const validatetoken = (req,res, next) =>
             next();
         }
         catch(err){
+            logger.error("invalid token");
             return res.status(401).json({"eror":"token invalid"});
         }
     }
     else{
+        logger.error("no token generated");
         return res.status(401).json({"error":"no token generated"});
     }
 }

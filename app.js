@@ -55,6 +55,7 @@ app.use((req, res, next) => {
     logger.error(`${req.url} route not found`);
 })
 app.use((error, req, res, next) =>{
+    logger.error(`${401} - ${`No route found`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
     res.status(error.status || 500);
     res.json({
         error:{
@@ -64,5 +65,5 @@ app.use((error, req, res, next) =>{
 })
 app.listen(port, () => {
     console.log("Server1 is running in port no " +port);
-    logger.info(`application running on port ${port}`);
+    logger.info(`${200} - ${`server running on port`} ${port}`);
 });

@@ -38,11 +38,12 @@ const addquestion = async (req, res) =>
                 type,
                 marks
             }
-            logger.info("successfully created question");
+            logger.info(`${200} - ${`Added new question`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
             return { status: "success", data: await Question.create(createquestion) };
         }
     }
     else{
+        logger.error(`${401} - ${`No permission`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
         return {status:"error", message:"You have no permisiion to add question"}
     }
 };
@@ -77,7 +78,7 @@ const viewquestion = async (req, res) =>
     }
     else 
     {
-        logger.error("you have no permission to access questions");
+        logger.error(`${401} - ${`No permission`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
         return { status: 403, message: 'you have no permission' };
     }
 }

@@ -28,12 +28,12 @@ const validatetoken = (req,res, next) =>
             next();
         }
         catch(err){
-            logger.error("invalid token");
-            return res.status(401).json({"eror":"token invalid"});
+            logger.error(`${401} - ${`Invalid token`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
+            return res.status(401).json({"error":"token invalid"});
         }
     }
     else{
-        logger.error("no token generated");
+        logger.error(`${401} - ${`No token generated`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
         return res.status(401).json({"error":"no token generated"});
     }
 }

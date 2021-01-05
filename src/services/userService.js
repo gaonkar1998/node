@@ -28,7 +28,7 @@ const registerUser = async (req, res) =>
             last_name,
             role
         }
-        logger.info("user with email "+email+" created successfully");
+        logger.info(`${200} - ${`User created`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
         return { status: "success" , data: await User.create(createUser)};
     }
 };

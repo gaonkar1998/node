@@ -153,7 +153,7 @@ routes.post('/register',
             .not().isEmpty().withMessage(" first name cannont be empty"),
 
         body('last_name')
-            .isAlpha().withMessage("name should be string")
+            .isString().withMessage("name should be string")
             .not().isEmpty().withMessage("last name cannont be empty"),
 
         body('role')

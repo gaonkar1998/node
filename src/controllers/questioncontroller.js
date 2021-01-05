@@ -39,7 +39,7 @@ const fetchquestions = async (req, res) =>
     }
     if(fetchquestion.status == 403)
     {
-        logger.error("you have no permission to access questions");
+        logger.error(`${401} - ${`No permission`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
         return res.status(403).json({ error: fetchquestion.message });
     }
     

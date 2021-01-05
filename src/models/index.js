@@ -17,11 +17,11 @@ const sequelize = new Sequelize(`mysql://${username}:${password}@${dbHost}:${dbP
 sequelize
     .authenticate()
     .then(() => {
-        logger.info("database connection established");
+        logger.info(`${200} - ${`connection successful`}`);
         console.log(`Connection has been established successfully`);
     })
     .catch(err => {
-        logger.error("database connection could not be established");
+        logger.error(`${401} - ${`Cannot connect to db`}`);
         console.error('Unable to connect to the database:', err);
     });
 

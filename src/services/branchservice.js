@@ -18,12 +18,7 @@ const getbranch = async (req, res) =>
         const getbranches = await Branch.findAll({});
         if (getbranches.length) 
         {
-            let response = res.send;
-            res.send = function (data) {
-            logger.info("successfully responded branch details");
-            logger.info(JSON.parse(data));
-            response.apply(res, arguments);
-            }
+            logger.info(`${200} - ${`Provided branch details`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
             return { status: 200, data: getbranches }
         }
         else 
@@ -34,7 +29,7 @@ const getbranch = async (req, res) =>
     }
     else 
     {
-        logger.error("you have no permission to access branch");
+        logger.error(`${401} - ${`No permission`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
         return { status: 401, message: "you have no permission" }
     }
 }

@@ -19,16 +19,12 @@ const loginuser = async (req, res) =>
         const userData = loginUserData.data[0];
         delete userData['password'];
         const token = authService.generateToken(userData);
-        let response = res.send;
-        res.send = function (data) {
-        logger.info(JSON.parse(data));
-        response.apply(res, arguments);
-        }
+        logger.info(`${200} - ${`loggedin successfully`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
         return res.status(200).json({ "success": "Login success", "token": token });
     }
     else 
     {
-        logger.error("email and password invalid");
+        logger.error(`${error.status || 401} - ${`loggedin successfully`} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
         return res.status(401).json({ "error": "Invalid email or password" });
     }
 }

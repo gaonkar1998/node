@@ -1,6 +1,7 @@
 const userService = require('../services/userService');
 
 const { validationResult } = require('express-validator');
+const logger = require('../logger/logger');
 
 const registerUser = async (req, res) => 
 {
@@ -9,6 +10,7 @@ const registerUser = async (req, res) =>
     //if their are errors in the request print the errors
     if (!error.isEmpty()) 
     {
+        logger.error(error);
         return res.status(401).json({ "error": error });
     }
     // execute service file

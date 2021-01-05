@@ -9,7 +9,7 @@ const loginuser = async (req, res) =>
     //if their are errors in the request print the errors
     if (!error.isEmpty()) 
     {
-        logger.error("enter proper input fields");
+        logger.error(error);
         return res.status(401).json({ "error": error });
     }
     const loginUserData = await userService.loginUser(req, res);
@@ -28,6 +28,7 @@ const loginuser = async (req, res) =>
     }
     else 
     {
+        logger.error("email and password invalid");
         return res.status(401).json({ "error": "Invalid email or password" });
     }
 }

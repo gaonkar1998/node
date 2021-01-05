@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 require('custom-env').env();
 const fs = require('fs');
 const path = require('path');
+const logger = require('../logger/logger');
 const basename = path.basename(__filename);
 // require('custom-env').env();
 const dbHost = process.env.db_Host;
@@ -16,9 +17,11 @@ const sequelize = new Sequelize(`mysql://${username}:${password}@${dbHost}:${dbP
 sequelize
     .authenticate()
     .then(() => {
+        logger.info("database connection established");
         console.log(`Connection has been established successfully`);
     })
     .catch(err => {
+        logger.error("database connection could not be established");
         console.error('Unable to connect to the database:', err);
     });
 

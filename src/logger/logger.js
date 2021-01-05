@@ -1,8 +1,4 @@
-const {
-    createLogger,
-    transports,
-    format
-} = require('winston');
+const { createLogger, format, transports } = require('winston');
 const logger = createLogger({
     transports: [
         new transports.Console({

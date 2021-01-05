@@ -1,5 +1,5 @@
 require('custom-env').env();
-
+const morgan = require('morgan');
 var http = require("http");
 
 var express = require("express");
@@ -28,6 +28,7 @@ app.use (jsonparser);
 
 // redirect to routes if /api is used
 const apiroutes = require('./src/routes/index');
+app.use(morgan('dev'));
 
 app.use('/api', apiroutes);
 
@@ -47,7 +48,20 @@ const swaggerOptions = {
 }
 const swaggerDocs = swaggerjsDoc(swaggerOptions);
 app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-
+app.use((req, res, next) => {
+    const error = new Error('Not found');
+    error.status = 404;
+    next(error);
+    logger.error(`${req.url} route not found`);
+})
+app.use((error, req, res, next) =>{
+    res.status(error.status || 500);
+    res.json({
+        error:{
+            message:error.message
+        }
+    })
+})
 app.listen(port, () => {
     console.log("Server1 is running in port no " +port);
     logger.info(`application running on port ${port}`);

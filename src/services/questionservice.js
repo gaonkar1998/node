@@ -72,14 +72,13 @@ const viewquestion = async (req, res) =>
         }
         else 
         {
-            logger.error("no questions in db");
             return { status: 401, message: "data not present" };
         }
     }
     else 
     {
         logger.error("you have no permission to access questions");
-        return { status: 401, message: 'you have no permission' };
+        return { status: 403, message: 'you have no permission' };
     }
 }
 

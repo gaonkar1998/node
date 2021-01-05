@@ -34,7 +34,7 @@ const getbranch = async (req, res) =>
     }
     else 
     {
-        logger.info("you have no permission to access branch");
+        logger.error("you have no permission to access branch");
         return { status: 401, message: "you have no permission" }
     }
 }

@@ -1,7 +1,6 @@
 const db = require('../models/index');
 const { User } = db.sequelize.models;
 const bcrypt = require('bcrypt');
-var logger = require('../logger/logger');
 const loginUser = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -17,7 +16,6 @@ const loginUser = async (req, res) => {
             return { status: 200, data: userDetails }
         }
         else {
-            logger.error("email and password invalid to access the application");
             return { status: "error", data: [] }
         }
     }
